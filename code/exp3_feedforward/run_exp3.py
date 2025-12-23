@@ -110,7 +110,7 @@ def run_single_experiment(config: dict, save_dir: str, data_loaders: tuple, prep
     }
 
     with open(os.path.join(save_dir, 'results.json'), 'w', encoding='utf-8') as f:
-        json.dump(results, f, indent=2, ensure_ascii=False)
+        json.dump(results, f, indent=2, ensure_ascii=False, default=str)
 
     return results
 

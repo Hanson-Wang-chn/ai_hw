@@ -295,7 +295,7 @@ def run_experiment():
             else:
                 save_results[k] = v
 
-        json.dump(save_results, f, indent=2, ensure_ascii=False)
+        json.dump(save_results, f, indent=2, ensure_ascii=False, default=str)
 
     print(f"\n实验完成！结果保存在: {output_dir}")
 
