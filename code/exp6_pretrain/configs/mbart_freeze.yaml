@@ -1,0 +1,27 @@
+# 实验六：mBART分层冻结微调
+experiment:
+  name: "pretrain_mbart_freeze"
+  description: "mBART预训练 + 分层冻结（冻结Encoder前3层+Decoder前2层）"
+
+pretrain:
+  model_type: "mbart"
+  model_name: "facebook/mbart-large-50-many-to-many-mmt"
+  finetune_strategy: "layer_freeze"
+  encoder_freeze_layers: 3
+  decoder_freeze_layers: 2
+  src_lang: "en_XX"
+  tgt_lang: "de_DE"
+
+training:
+  lr: 0.00001
+  batch_size: 16
+  epochs: 30
+  patience: 5
+  lr_patience: 3
+  lr_factor: 0.5
+  grad_clip: 1.0
+  label_smoothing: 0.1
+  weight_decay: 0.01
+
+data:
+  max_seq_len: 128

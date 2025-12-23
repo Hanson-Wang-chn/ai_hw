@@ -1,0 +1,31 @@
+# 实验四：预归一化
+experiment:
+  name: "norm_pre_ln"
+  description: "预归一化：在注意力/FFN模块前添加LayerNorm (Xiong et al., 2020)"
+
+model:
+  d_model: 512
+  nhead: 8
+  num_encoder_layers: 3
+  num_decoder_layers: 3
+  dim_feedforward: 2048
+  dropout: 0.1
+  activation: "relu"
+  pe_type: "sinusoidal"
+  norm_type: "pre"
+  attn_type: "multi_head"
+
+training:
+  lr: 0.0001
+  batch_size: 32
+  epochs: 50
+  patience: 5
+  lr_patience: 3
+  lr_factor: 0.5
+  grad_clip: 1.0
+  label_smoothing: 0.1
+  weight_decay: 0.01
+
+data:
+  max_seq_len: 20
+  min_freq: 2

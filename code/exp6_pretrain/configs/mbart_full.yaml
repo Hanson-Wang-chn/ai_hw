@@ -1,0 +1,25 @@
+# 实验六：mBART全参数微调
+experiment:
+  name: "pretrain_mbart_full"
+  description: "mBART-base预训练模型 + 全参数微调"
+
+pretrain:
+  model_type: "mbart"
+  model_name: "facebook/mbart-large-50-many-to-many-mmt"
+  finetune_strategy: "full"
+  src_lang: "en_XX"
+  tgt_lang: "de_DE"
+
+training:
+  lr: 0.00001  # 微调学习率衰减
+  batch_size: 16  # 降低batch_size以节省显存
+  epochs: 30
+  patience: 5
+  lr_patience: 3
+  lr_factor: 0.5
+  grad_clip: 1.0
+  label_smoothing: 0.1
+  weight_decay: 0.01
+
+data:
+  max_seq_len: 128

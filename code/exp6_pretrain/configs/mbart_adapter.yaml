@@ -1,0 +1,26 @@
+# 实验六：mBART适配器微调
+experiment:
+  name: "pretrain_mbart_adapter"
+  description: "mBART预训练 + 适配器微调（冻结所有预训练参数，仅训练适配器层）"
+
+pretrain:
+  model_type: "mbart"
+  model_name: "facebook/mbart-large-50-many-to-many-mmt"
+  finetune_strategy: "adapter"
+  adapter_dim: 64  # d_model / 8
+  src_lang: "en_XX"
+  tgt_lang: "de_DE"
+
+training:
+  lr: 0.0001  # 适配器使用较大学习率
+  batch_size: 16
+  epochs: 30
+  patience: 5
+  lr_patience: 3
+  lr_factor: 0.5
+  grad_clip: 1.0
+  label_smoothing: 0.1
+  weight_decay: 0.01
+
+data:
+  max_seq_len: 128

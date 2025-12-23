@@ -1,0 +1,31 @@
+# 实验一：正弦位置编码配置
+experiment:
+  name: "position_encoding_sinusoidal"
+  description: "标准正弦位置编码 (Vaswani et al., 2017)"
+
+model:
+  d_model: 512
+  nhead: 8
+  num_encoder_layers: 3
+  num_decoder_layers: 3
+  dim_feedforward: 2048
+  dropout: 0.1
+  activation: "relu"
+  pe_type: "sinusoidal"
+  norm_type: "post"
+  attn_type: "multi_head"
+
+training:
+  lr: 0.0001
+  batch_size: 32
+  epochs: 50
+  patience: 5
+  lr_patience: 3
+  lr_factor: 0.5
+  grad_clip: 1.0
+  label_smoothing: 0.1
+  weight_decay: 0.01
+
+data:
+  max_seq_len: 20
+  min_freq: 2
