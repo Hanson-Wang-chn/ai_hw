@@ -1,0 +1,14 @@
+2025-12-23 17:19:47 - INFO - 开始训练，共 50 轮
+2025-12-23 17:19:47 - INFO - 模型参数量: 33,240,849
+2025-12-23 17:20:17 - INFO - Epoch 1: train_loss=2.8192, val_loss=0.5765, val_bleu_4=0.0044, lr=1.00e-04
+2025-12-23 17:20:17 - INFO - 新的最佳模型！BLEU-4: 0.0044
+2025-12-23 17:20:46 - INFO - Epoch 2: train_loss=1.6975, val_loss=0.3061, val_bleu_4=0.0044, lr=1.00e-04
+2025-12-23 17:21:15 - INFO - Epoch 3: train_loss=1.5164, val_loss=0.2144, val_bleu_4=0.0044, lr=1.00e-04
+2025-12-23 17:21:44 - INFO - Epoch 4: train_loss=1.4349, val_loss=0.1711, val_bleu_4=0.0044, lr=1.00e-04
+2025-12-23 17:22:14 - INFO - Epoch 5: train_loss=1.3900, val_loss=0.1487, val_bleu_4=0.0044, lr=1.00e-04
+2025-12-23 17:22:43 - INFO - Epoch 6: train_loss=1.3603, val_loss=0.1408, val_bleu_4=0.0044, lr=5.00e-05
+2025-12-23 17:22:43 - INFO - 早停触发，已有 5 轮无提升
+2025-12-23 17:22:43 - INFO - 训练完成，耗时: 2.93 分钟
+2025-12-23 17:22:43 - INFO - 在测试集上评估最佳模型...
+2025-12-23 17:22:44 - INFO - 加载检查点: /home/whs/ai_hw/code/exp5_decoding/results/base_model/checkpoints/best_model.pth
+2025-12-23 17:22:48 - INFO - 测试集结果: {'bleu_1': np.float64(0.02468094082902647), 'bleu_2': np.float64(0.008018668483230665), 'bleu_4': np.float64(0.004774925052524541), 'rouge_l': np.float64(0.06117487462422324), 'bert_score': 0.4818650186061859, 'loss': 0.5808796128258109}

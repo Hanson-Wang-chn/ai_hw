@@ -1,0 +1,52 @@
+{
+  "config": {
+    "experiment": {
+      "name": "ffn_relu_4x",
+      "description": "ReLU激活 + 4倍隐藏层维度 (Vaswani原版)"
+    },
+    "model": {
+      "d_model": 512,
+      "nhead": 8,
+      "num_encoder_layers": 3,
+      "num_decoder_layers": 3,
+      "dim_feedforward": 2048,
+      "dropout": 0.1,
+      "activation": "relu",
+      "pe_type": "sinusoidal",
+      "norm_type": "post",
+      "attn_type": "multi_head"
+    },
+    "training": {
+      "lr": 0.0001,
+      "batch_size": 32,
+      "epochs": 50,
+      "patience": 5,
+      "lr_patience": 3,
+      "lr_factor": 0.5,
+      "grad_clip": 1.0,
+      "label_smoothing": 0.1,
+      "weight_decay": 0.01
+    },
+    "data": {
+      "max_seq_len": 20,
+      "min_freq": 2
+    }
+  },
+  "test_metrics": {
+    "bleu_1": 0.02468094082902647,
+    "bleu_2": 0.008018668483230665,
+    "bleu_4": 0.004774925052524541,
+    "rouge_l": 0.06117487462422324,
+    "bert_score": 0.4818650186061859,
+    "loss": 0.574471321888268
+  },
+  "gradient_vanishing_epochs": 0,
+  "gradient_exploding_epochs": 0,
+  "feature_extraction_score": "0.99995756",
+  "bleu_1": 0.02468094082902647,
+  "bleu_2": 0.008018668483230665,
+  "bleu_4": 0.004774925052524541,
+  "rouge_l": 0.06117487462422324,
+  "bert_score": 0.4818650186061859,
+  "loss": 0.574471321888268
+}

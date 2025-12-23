@@ -1,0 +1,14 @@
+2025-12-23 16:11:15 - INFO - 开始训练，共 50 轮
+2025-12-23 16:11:15 - INFO - 模型参数量: 33,240,849
+2025-12-23 16:11:45 - INFO - Epoch 1: train_loss=2.8110, val_loss=0.5863, val_bleu_4=0.0044, lr=1.00e-04
+2025-12-23 16:11:46 - INFO - 新的最佳模型！BLEU-4: 0.0044
+2025-12-23 16:12:15 - INFO - Epoch 2: train_loss=1.7186, val_loss=0.3227, val_bleu_4=0.0044, lr=1.00e-04
+2025-12-23 16:12:45 - INFO - Epoch 3: train_loss=1.5423, val_loss=0.2341, val_bleu_4=0.0044, lr=1.00e-04
+2025-12-23 16:13:14 - INFO - Epoch 4: train_loss=1.4608, val_loss=0.1876, val_bleu_4=0.0044, lr=1.00e-04
+2025-12-23 16:13:44 - INFO - Epoch 5: train_loss=1.4133, val_loss=0.1611, val_bleu_4=0.0044, lr=1.00e-04
+2025-12-23 16:14:14 - INFO - Epoch 6: train_loss=1.3808, val_loss=0.1506, val_bleu_4=0.0044, lr=5.00e-05
+2025-12-23 16:14:14 - INFO - 早停触发，已有 5 轮无提升
+2025-12-23 16:14:14 - INFO - 训练完成，耗时: 2.98 分钟
+2025-12-23 16:14:14 - INFO - 在测试集上评估最佳模型...
+2025-12-23 16:14:14 - INFO - 加载检查点: /home/whs/ai_hw/code/exp2_attention/results/attention_scaled_dot/checkpoints/best_model.pth
+2025-12-23 16:14:19 - INFO - 测试集结果: {'bleu_1': np.float64(0.02468094082902647), 'bleu_2': np.float64(0.008018668483230665), 'bleu_4': np.float64(0.004774925052524541), 'rouge_l': np.float64(0.06117487462422324), 'bert_score': 0.48186495900154114, 'loss': 0.5918847545981407}

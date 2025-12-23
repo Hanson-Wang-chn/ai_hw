@@ -1,0 +1,14 @@
+2025-12-23 15:38:28 - INFO - 开始训练，共 50 轮
+2025-12-23 15:38:28 - INFO - 模型参数量: 38,360,849
+2025-12-23 15:39:01 - INFO - Epoch 1: train_loss=2.4998, val_loss=0.4412, val_bleu_4=0.0044, lr=1.00e-04
+2025-12-23 15:39:02 - INFO - 新的最佳模型！BLEU-4: 0.0044
+2025-12-23 15:39:34 - INFO - Epoch 2: train_loss=1.5734, val_loss=0.2375, val_bleu_4=0.0044, lr=1.00e-04
+2025-12-23 15:40:07 - INFO - Epoch 3: train_loss=1.4333, val_loss=0.1710, val_bleu_4=0.0044, lr=1.00e-04
+2025-12-23 15:40:38 - INFO - Epoch 4: train_loss=1.3736, val_loss=0.1424, val_bleu_4=0.0044, lr=1.00e-04
+2025-12-23 15:41:10 - INFO - Epoch 5: train_loss=1.3431, val_loss=0.1294, val_bleu_4=0.0044, lr=1.00e-04
+2025-12-23 15:41:41 - INFO - Epoch 6: train_loss=1.3218, val_loss=0.1250, val_bleu_4=0.0044, lr=5.00e-05
+2025-12-23 15:41:41 - INFO - 早停触发，已有 5 轮无提升
+2025-12-23 15:41:41 - INFO - 训练完成，耗时: 3.21 分钟
+2025-12-23 15:41:41 - INFO - 在测试集上评估最佳模型...
+2025-12-23 15:41:41 - INFO - 加载检查点: /home/whs/ai_hw/code/exp1_position_encoding/results/position_encoding_learnable/checkpoints/best_model.pth
+2025-12-23 15:41:46 - INFO - 测试集结果: {'bleu_1': np.float64(0.02468094082902647), 'bleu_2': np.float64(0.008018668483230665), 'bleu_4': np.float64(0.004774925052524541), 'rouge_l': np.float64(0.06117487462422324), 'bert_score': 0.4818650186061859, 'loss': 0.45051604975014925}

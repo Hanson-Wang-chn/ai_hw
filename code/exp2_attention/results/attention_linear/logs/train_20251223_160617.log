@@ -1,0 +1,18 @@
+2025-12-23 16:06:17 - INFO - 开始训练，共 50 轮
+2025-12-23 16:06:17 - INFO - 模型参数量: 33,240,849
+2025-12-23 16:06:48 - INFO - Epoch 1: train_loss=2.8896, val_loss=0.5601, val_bleu_4=0.0001, lr=1.00e-04
+2025-12-23 16:06:49 - INFO - 新的最佳模型！BLEU-4: 0.0001
+2025-12-23 16:07:20 - INFO - Epoch 2: train_loss=1.6827, val_loss=0.2994, val_bleu_4=0.0000, lr=1.00e-04
+2025-12-23 16:07:52 - INFO - Epoch 3: train_loss=1.5026, val_loss=0.2093, val_bleu_4=0.0000, lr=1.00e-04
+2025-12-23 16:08:24 - INFO - Epoch 4: train_loss=1.4244, val_loss=0.1679, val_bleu_4=0.0012, lr=1.00e-04
+2025-12-23 16:08:25 - INFO - 新的最佳模型！BLEU-4: 0.0012
+2025-12-23 16:08:57 - INFO - Epoch 5: train_loss=1.3826, val_loss=0.1488, val_bleu_4=0.0002, lr=1.00e-04
+2025-12-23 16:09:29 - INFO - Epoch 6: train_loss=1.3575, val_loss=0.1366, val_bleu_4=0.0002, lr=1.00e-04
+2025-12-23 16:10:01 - INFO - Epoch 7: train_loss=1.3415, val_loss=0.1315, val_bleu_4=0.0008, lr=1.00e-04
+2025-12-23 16:10:33 - INFO - Epoch 8: train_loss=1.3310, val_loss=0.1263, val_bleu_4=0.0001, lr=1.00e-04
+2025-12-23 16:11:05 - INFO - Epoch 9: train_loss=1.3182, val_loss=0.1234, val_bleu_4=0.0001, lr=5.00e-05
+2025-12-23 16:11:05 - INFO - 早停触发，已有 5 轮无提升
+2025-12-23 16:11:05 - INFO - 训练完成，耗时: 4.81 分钟
+2025-12-23 16:11:05 - INFO - 在测试集上评估最佳模型...
+2025-12-23 16:11:05 - INFO - 加载检查点: /home/whs/ai_hw/code/exp2_attention/results/attention_linear/checkpoints/best_model.pth
+2025-12-23 16:11:11 - INFO - 测试集结果: {'bleu_1': np.float64(0.006539394578630945), 'bleu_2': np.float64(0.0021246044699158163), 'bleu_4': np.float64(0.0012651510822928272), 'rouge_l': np.float64(0.010244966542522783), 'bert_score': 0.5458039045333862, 'loss': 0.17302867746911943}

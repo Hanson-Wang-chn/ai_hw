@@ -4,10 +4,4 @@
 .DS_Store
 __pycache__
 *.pyc
-code/exp1_position_encoding/results
-code/exp2_attention/results
-code/exp3_feedforward/results
-code/exp4_normalization/results
-code/exp5_decoding/results
-code/exp6_pretrain/results
-code/exp7_data_augmentation/results
+checkpoints/
