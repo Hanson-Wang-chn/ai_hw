@@ -58,7 +58,18 @@ class ScaledDotProductAttention(nn.Module):
         scores = torch.matmul(Q, K.transpose(-2, -1)) / self.scale
 
         # 应用掩码
+        # scores的形状: (batch, seq_len_q, seq_len_k)
+        # mask可能是2D, 3D或4D
         if mask is not None:
+            if mask.dim() == 4:
+                # mask: (batch, 1, 1, seq_len) 或 (batch, 1, seq_len_q, seq_len_k)
+                # 压缩到3D以匹配scores的形状
+                mask = mask.squeeze(1)
+                if mask.dim() == 3 and mask.size(1) == 1:
+                    mask = mask.expand(-1, scores.size(1), -1)
+            elif mask.dim() == 2:
+                # mask: (batch, seq_len) -> (batch, 1, seq_len)
+                mask = mask.unsqueeze(1)
             scores = scores.masked_fill(mask == 0, float('-inf'))
 
         # Softmax归一化
@@ -210,11 +221,28 @@ class LinearAttention(nn.Module):
         K = self._feature_map(K)
 
         # 应用掩码
+        # 对于线性注意力，需要将掩码转换为适合K和V的形状
+        # K和V的形状: (batch, nhead, seq_len, d_k)
+        # 掩码需要转换为 (batch, 1, seq_len, 1) 以便正确广播
         if mask is not None:
             if mask.dim() == 2:
+                # mask: (batch, seq_len) -> (batch, 1, seq_len, 1)
                 mask = mask.unsqueeze(1).unsqueeze(-1)
             elif mask.dim() == 3:
-                mask = mask.unsqueeze(1)
+                # mask: (batch, 1, seq_len) -> (batch, 1, seq_len, 1)
+                mask = mask.unsqueeze(-1)
+            elif mask.dim() == 4:
+                # mask: (batch, 1, 1, seq_len) 或 (batch, 1, seq_len_q, seq_len_k)
+                # 对于线性注意力，我们只需要知道哪些位置是有效的
+                # 取mask的最后一个维度作为序列长度方向的掩码
+                # 将其转换为 (batch, 1, seq_len, 1)
+                if mask.size(2) == 1:
+                    # mask: (batch, 1, 1, seq_len) -> (batch, 1, seq_len, 1)
+                    mask = mask.transpose(-2, -1)
+                else:
+                    # mask: (batch, 1, seq_len_q, seq_len_k) -> 取对角线或第一行作为填充掩码
+                    # 假设是对称的填充掩码，取最后一维的任意一行
+                    mask = mask[:, :, 0:1, :].transpose(-2, -1)
             K = K * mask.float()
             V = V * mask.float()
 
