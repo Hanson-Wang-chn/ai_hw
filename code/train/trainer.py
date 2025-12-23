@@ -14,7 +14,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
-from torch.cuda.amp import GradScaler, autocast
+from torch.amp import GradScaler, autocast
 
 from train.utils import (
     compute_loss,
@@ -80,7 +80,7 @@ class Trainer:
 
         # 混合精度训练
         self.use_amp = config.get('use_amp', True)
-        self.scaler = GradScaler() if self.use_amp else None
+        self.scaler = GradScaler('cuda') if self.use_amp else None
 
         # 早停
         self.patience = config.get('patience', 5)
@@ -130,7 +130,7 @@ class Trainer:
 
             # 混合精度前向传播
             if self.use_amp:
-                with autocast():
+                with autocast('cuda'):
                     outputs = self.model(src, tgt)
                     loss = compute_loss(
                         outputs['output'], tgt,

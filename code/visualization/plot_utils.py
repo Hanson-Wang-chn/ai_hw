@@ -6,6 +6,8 @@
 
 import os
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')  # 使用非交互式后端，避免GUI相关错误
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import seaborn as sns
