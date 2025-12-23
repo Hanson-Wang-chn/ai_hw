@@ -1,0 +1,67 @@
+{
+  "config": {
+    "experiment": {
+      "name": "norm_pre_ln",
+      "description": "预归一化：在注意力/FFN模块前添加LayerNorm (Xiong et al., 2020)"
+    },
+    "model": {
+      "d_model": 512,
+      "nhead": 8,
+      "num_encoder_layers": 3,
+      "num_decoder_layers": 3,
+      "dim_feedforward": 2048,
+      "dropout": 0.1,
+      "activation": "relu",
+      "pe_type": "sinusoidal",
+      "norm_type": "pre",
+      "attn_type": "multi_head"
+    },
+    "training": {
+      "lr": 0.0001,
+      "batch_size": 32,
+      "epochs": 50,
+      "patience": 5,
+      "lr_patience": 3,
+      "lr_factor": 0.5,
+      "grad_clip": 1.0,
+      "label_smoothing": 0.1,
+      "weight_decay": 0.01
+    },
+    "data": {
+      "max_seq_len": 20,
+      "min_freq": 2
+    }
+  },
+  "test_metrics": {
+    "bleu_1": 0.02468094082902647,
+    "bleu_2": 0.008018668483230665,
+    "bleu_4": 0.004774925052524541,
+    "rouge_l": 0.06117487462422324,
+    "bert_score": 0.4818650186061859,
+    "loss": 0.6003454038873315
+  },
+  "loss_variance": 0.23912830735704974,
+  "convergence_epoch": 1,
+  "train_loss_history": [
+    2.7871968387502486,
+    1.7148301232177598,
+    1.5416123518901588,
+    1.4649462139448233,
+    1.4208535015319301,
+    1.3891357557963482
+  ],
+  "val_loss_history": [
+    0.5931934015825391,
+    0.3290287433192134,
+    0.2388448789715767,
+    0.19506761082448065,
+    0.1694651369471103,
+    0.1561193633824587
+  ],
+  "bleu_1": 0.02468094082902647,
+  "bleu_2": 0.008018668483230665,
+  "bleu_4": 0.004774925052524541,
+  "rouge_l": 0.06117487462422324,
+  "bert_score": 0.4818650186061859,
+  "loss": 0.6003454038873315
+}
