@@ -202,7 +202,7 @@ def run_experiment():
             config=model_config,
             pad_idx=preprocessor.src_vocab.pad_idx
         )
-        checkpoint = torch.load(args.model_path, map_location=DEVICE)
+        checkpoint = torch.load(args.model_path, map_location=DEVICE, weights_only=False)
         model.load_state_dict(checkpoint['model_state_dict'])
         model = model.to(DEVICE)
     else:

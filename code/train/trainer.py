@@ -382,7 +382,7 @@ class Trainer:
             path = os.path.join(self.save_dir, 'checkpoints', 'best_model.pth')
 
         if path and os.path.exists(path):
-            checkpoint = torch.load(path, map_location=self.device)
+            checkpoint = torch.load(path, map_location=self.device, weights_only=False)
             self.model.load_state_dict(checkpoint['model_state_dict'])
             self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
             self.scheduler.load_state_dict(checkpoint['scheduler_state_dict'])
@@ -415,8 +415,7 @@ def create_optimizer_and_scheduler(
         optimizer,
         mode='max',
         factor=config.get('lr_factor', 0.5),
-        patience=config.get('lr_patience', 3),
-        verbose=True
+        patience=config.get('lr_patience', 3)
     )
 
     return optimizer, scheduler

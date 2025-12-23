@@ -242,7 +242,7 @@ def load_model_for_inference(
     )
 
     # 加载权重
-    checkpoint = torch.load(checkpoint_path, map_location=device)
+    checkpoint = torch.load(checkpoint_path, map_location=device, weights_only=False)
     model.load_state_dict(checkpoint['model_state_dict'])
     print(f"模型已从 {checkpoint_path} 加载")
 

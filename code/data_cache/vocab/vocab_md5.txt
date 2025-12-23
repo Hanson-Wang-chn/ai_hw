@@ -1,0 +1,2 @@
+src_vocab_md5: 3cccacf0f7b51ec010b85156d22c3fdf
+tgt_vocab_md5: 111ecc5d65f09e299bbd8e3596b4145a

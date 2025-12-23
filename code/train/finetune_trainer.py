@@ -80,8 +80,7 @@ class FinetuneTrainer(Trainer):
             self.optimizer,
             mode='max',
             factor=config.get('lr_factor', 0.5),
-            patience=config.get('lr_patience', 3),
-            verbose=True
+            patience=config.get('lr_patience', 3)
         )
 
         # 早停
